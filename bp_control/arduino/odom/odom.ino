@@ -92,12 +92,12 @@ void readCommand()
       // Calculate motor speeds based on linear and angular velocities
       int leftSpeed = (linear_x - angular_z) * max_speed;
       int rightSpeed = (linear_x + angular_z) * max_speed;
-      if(angular_z > 0)
+      if(angular_z > 0)//reduce left turning speed to prevent crazy spins when turning
       {
         rightSpeed = 0;
         leftSpeed = 130;
       }
-      else if(angular_z < 0)
+      else if(angular_z < 0)//reduce right turning speed too
       {
         leftSpeed = 0;
         rightSpeed = 130;
